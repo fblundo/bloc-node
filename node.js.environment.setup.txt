@@ -1,0 +1,34 @@
+1) What is npm and what does it do?
+
+NPM stands for Node Package Management. It is a command line tool
+to install Node packages and build our application.
+
+2) What kind of information does package.json hold?
+
+It is a json file, that communicates to npm how the application is structured.
+More in particular:
+- it lists the node packages your project depends on
+- it specifies versions of a package that your project can use using semantic versioning rules
+- it makes the build reproducible, and therefore easier to share with other developers
+
+3) Google another Node package. Using the demo directory run npm install <theNameOfThePackage> --save.
+Check the contents of your package.json file to make sure that the dependencies list the name of the Node package.
+
+I have added a new node package, called Underscore. You can see it in the dependencies section of th
+json code source reported below.
+
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+        "underscore": "^1.9.1" // added new node package "Underscore"
+  }
+}
