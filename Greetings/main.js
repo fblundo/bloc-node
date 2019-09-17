@@ -1,6 +1,6 @@
 const greetings = require("./greeting.js");
 const seeyoulater = require("./seeyoulater.js");
-
+ 
 greetings.greetingEnglish();
 greetings.greetingJapanese();
 greetings.greetingIcelandic();
