@@ -1,0 +1,30 @@
+Create a file called basic_node_app_answers.txt
+and put your answers in the file.
+
+1) What is a Node module?
+
+A node module is a set of function that is included in an application.
+
+2) What is the main difference between exports and module.exports?
+
+module.exports is the object returned from require().
+It is an object that can be reassigned into anything.
+
+3) Why is using exports recommended?
+
+Our module returns module.exports to the caller ultimately, not exports.
+All exports does is collect properties and attach them to module.exports
+It is better to use exports rather than module.experts because, if something
+is then attached to module.experts' object, it will overrid what
+has been already added using 'exports'.
+
+https://blog.tableflip.io/the-difference-between-module-exports-and-exports/
+
+
+Using exports is recommended because in most instances
+we are not trying to reassign module.exports.
+
+
+Programming Questions
+Before you begin, make sure you have greeting.js and main.js
+in the following states:

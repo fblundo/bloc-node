@@ -7,20 +7,17 @@ files (such as read, write, create).
 2) What is the difference between sync and non-sync methods in the fs module?
 Each node module has both a sync and a non-sync method. The sync version implies actions to be performed
 in a sequential manner (action one need to terminate executing before action two starts), whereas
-the a-sync version allows multiple actions to be called and performed at the same time.
+the a-sync version allows actions to occur out of order within our main JavaScript program.
+In this way, Node can process large amounts of tasks without waiting for any method to return results.
 
 3) Why are modules used?
 Module are replicables pieces of codes with a purpose. They can be easily installed using the npm install
 command, and required at the beginning of the node.js file, An example of core modules (which are already
-installed in npm) is 'http'; an example of non-core module, is 'https'.
+installed in npm) is 'http'; an example of non-core module, is "moment", a JavaScript date library for 
+parsing, validating, manipulating, and formatting dates.
 
 4) Why are libraries such as fs used in Node programming?
 Nodes' name for libraries is module. Modules are libraries, mainly just pieces of code, that are imported
 into a file. They are an example of the application of DRY principle.
 
-// Code Practice
-
-Create a Github repo called simple-http-node-server. Create an HTTP server on port
-3000 with a request handler that creates a file named hello-world.txt. You will be
-using the fs module to do this. Write the content: "Hello to this great world" to
-the hello-world.txt file. Please submit your finished code in your submission.
+ 
