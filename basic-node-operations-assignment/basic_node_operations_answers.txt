@@ -1,0 +1,86 @@
+Questions
+1) Run the commands sort, wc and uniq on the commands.js file.
+Explain how they work and what the output was.
+
+- 'sort commands.js' returned the file sorted alphabetically by line.
+
+
+
+       });
+   }
+}
+}
+};
+        }
+        },
+                break;
+                break;
+        case 'cat':
+        case 'echo':
+        'cat': function(fullPath) {
+                commandLibrary.cat(userInputArray.slice(1));
+                commandLibrary.echo(userInputArray.slice(1).join(' '));
+const commandLibrary = {
+        const command = userInputArray[0];
+       const fileName = fullPath[0];
+const fs = require('fs');
+        const userInputArray = userInput.split(' ');
+           done(data);
+                done(userInput);
+        'echo': function(userInput) {
+       fs.readFile(fileName, (err, data) => {
+function done(output) {
+function evaluateCmd(userInput) {
+           if (err) throw err;
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+        //parses the user input to understand which command was typed
+        process.stdout.write('\nprompt > ');
+        process.stdout.write(output);
+        switch (command) {
+                //we will add the functionality of echo next within the object commandLibrary
+
+
+- 'wc commands.js' printed newline, word, and byte counts for a file.
+
+   $ wc commands.js
+   21  64 566 commands.js
+
+- 'uniq commands.js' sorted each line, removing duplicated lines
+from the output.
+
+16     62     522
+// 5 fewer lines, 2 fewer words, 14 fewer characters than before with the wc command
+
+
+2) Using the pipe (|) connect at least two commands and run it
+on commands.js. Explain what the output was and why the specific
+data was outputted.
+
+A pipeline is a sequence of commands chained together so that the
+output (stdout) of one command is the input (stdin) to the next
+command. Two or more commands connected in this way form a pipe.
+To make a pipe, use the | symbol in the terminal between two commands.
+
+$ ls -al | grep bash.js
+
+The above pipe commmand listed all files in the folder and filtered them to show 
+me more detailed info about the file named "bash.js"
+
+Output:
+-rw-r--r-- 1 36922 1049089 377 Sep 17 23:03 bash.js
+
+6) Coding Exercise [TO DO]
+
+//Using ES5 Syntax
+function reverseString(str) {
+    return str.split("").reverse().join("");
+}
+console.log(reverseString("I want to reverse this string"));
+
+//Using ES6 syntax
+const reverse = (str) => {
+    return str.split("").reverse().join("");
+}
+
+console.log(reverse("I want to reverse this string"));
