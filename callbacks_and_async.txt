@@ -1,0 +1,93 @@
+// Questions
+
+1) What is the difference between readdirSync and readdir?
+
+readdirSync and readdir are two methods serving the same scope, in a different way:
+-  readdir is the asynchronous version; this means operations the method starts executing but
+does not need to finish executing (non-blocking), but instead give control back to the execution
+environment. Once the method finishes executing, a callback function can be performed, applying
+the same asynchronous concept.
+- readdirSync is the syncronous version. This means the next method will execute only when readdirSync
+completes, keeping control of the execution environment along the way (blocking).
+
+2) What is the event loop and how does it handle asynchronous requests?
+
+The even loop is at the core of node callbacks processing. It can be represented as a queue of events
+(function calls, etc.). If the event is asynchronous, Node asks the execution environment to notify it
+when the event is ready for processing. Meanwhile, it continues processing other events in the queue.
+The collection of technologies that help execute events, such as accessing the
+file system, is called the "thread pool".
+
+3) Given the following code, specify whether the program is asynchronous and non-blocking
+or synchronous and blocking or synchronous and non-blocking.
+
+'''
+const fs = require('fs');
+const file = fs.readFileSync('foo.txt');
+console.log(file.toString());
+'''
+
+4) The above is an example of synchronous and blocking program.
+
+'''
+const fs = require('fs');
+fs.readFile('foo.txt', (err, file) => {
+ if (err) throw err;
+ console.log(file.toString());
+});
+console.log("test");
+'''
+The above is an example of asynchronous and non-blocking program.
+
+5) In what order will the console.log statements execute in the code below?
+
+const fs = require('fs');
+fs.readFile('foo.txt', (err, file) => {
+ if (err) throw err;
+ console.log("A");
+ console.log("B")
+});
+console.log("C");
+
+A Given the asynchronous version of the program, it should start executing
+the fs.readFile method, but in parallel also execute the console.log("C") request.
+Also, the fs.readFile method includes an if statement which should be processed before executing
+the console.log("A") action.
+For these reasons, I would expect console.log to be executed with the following
+order: C >> A >> B
+
+6) setTimeout is a JavaScript function which calls a function after a set amount of milliseconds.
+Given the following code, explain in what sequence the functions will run and why.
+
+function greeting() {
+ setTimeout(() => {
+   console.log("friend");
+ }, 100);
+}
+
+function hello(){
+ console.log("hello");
+}
+
+greeting();
+hello();
+
+The two functions will run sequentially, but given the setTimeout
+of 100 milliseconds, the output of the hello() function ("friend")
+will appear before what the greeting() function will return ("hello").
+This could be considered similar to an asynchronous non blocking
+behaviour, returning the value "friend" to the console, 100 milliseconds
+after the function itself starts to execute, while other actions are
+performed (e.g. hello()).
+
+7) Create a function which utilizes a callback. Make sure to add
+console.log statements to understand when your callback function
+is called.
+
+const fs = require('fs')
+let results = (path) => {
+  fs.readFile(path, 'utf8', function(err, contents) {
+    console.log(contents)
+  })
+}
+results('./helloworld.txt')
